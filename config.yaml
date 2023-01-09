@@ -1,0 +1,21 @@
+DETECTOR_CONFIG:
+  DETECTOR_TYPE: "yolov5"
+  WEIGHT_PATH: "/content/drive/MyDrive/Yolov5_StrongSORT_OSNet/YOLOv5s.pt"
+  DEVICE: "cuda"
+  CONF_TH: 0.5
+  IOU_TH: 0.4
+  IMAGE_SIZE: 640
+  HALF: false
+
+TRACKER_CONFIG:
+  TRACKER_TYPE: "NORFAIR_TRACK"
+  WEIGHT_PATH: None
+  CONFIG_PATH: "/content/drive/MyDrive/TrackerHub/trackerhub/configs/norfair_track.yaml"
+  DEVICE: "cuda"
+  CONF_TH: 0.5
+  IOU_TH: 0.4
+
+VIDEO_CONFIG:
+  INPUT_PATH: "/content/drive/MyDrive/boats.mp4"
+  OUTPUT_PATH: "/content/drive/MyDrive/NORFAIR.avi"
+  SAVE_VIDEO: True

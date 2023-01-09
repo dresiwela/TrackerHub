@@ -1,7 +1,6 @@
 import cv2
 
-
-def create_video_writer(video_path, output_path, fps=None) -> cv2.VideoWriter:
+def create_video_writer(video_path, output_path, fps=None):
     """
     This function is used to create video writer.
     Args:
@@ -19,16 +18,15 @@ def create_video_writer(video_path, output_path, fps=None) -> cv2.VideoWriter:
     save_path = str(Path(save_dir) / Path(video_path).name)
     if fps is None:
         cap = cv2.VideoCapture(video_path)
-        fps = cap.get(cv2.CAP_PROP_FPS)
+        fps = int(cap.get(cv2.CAP_PROP_FPS))
 
     cap = cv2.VideoCapture(video_path)
     width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
     height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
     size = (width, height)
-    fourcc = cv2.VideoWriter_fourcc(*"mp4v")
+    fourcc = cv2.VideoWriter_fourcc(*"MJPG")
     videoWriter = cv2.VideoWriter(save_path, fourcc, fps, size)
     return videoWriter
-
 
 def get_video_formats():
     """
